@@ -9,14 +9,14 @@ function updateClock() {
 
   // Define the time range (for example, 09:00 to 17:00)
   const startHour = 0;
-  const endHour = 2;
+  const endHour = 5;
 
   // Logic to show/hide button or message
   if (now.getHours() >= startHour && now.getHours() < endHour) {
     document.getElementById("nextPageButton").style.display = "inline-block";
     document.getElementById("message").style.display = "none";
   } else {
-    document.getElementById("nextPageButton").style.display = "none";
+    document.getElementById("nextPageButton").style.display = "inline-block";
     document.getElementById("message").style.display = "block";
   }
 }
