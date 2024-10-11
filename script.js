@@ -30,6 +30,6 @@ updateClock();
 // Function to handle button click
 function goToNextPage() {
   document.getElementById("nextPageButton").onclick = function () {
-    window.location.href = "http://127.0.0.1:5501/propose/propose.html";
+    window.location.href = "propose.html";
   };
 }
