@@ -17,7 +17,7 @@ function updateClock() {
     document.getElementById("message").style.display = "none";
   } else {
     document.getElementById("nextPageButton").style.display = "inline-block";
-    document.getElementById("message").style.display = "block";
+    document.getElementById("message").style.display = "none";
   }
 }
 
