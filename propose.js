@@ -1,7 +1,7 @@
 // Function to redirect to the chat page
 function startChat() {
     document.getElementById("chatButton").onclick = function() {
-        window.location.href = 'http://localhost:3000/user2.html';
+        window.location.href = 'user2.html';
     };
     // window.location.href = 'http://localhost:5500/user1.html'; // Replace 'chat.html' with the actual chat page URL
 }
