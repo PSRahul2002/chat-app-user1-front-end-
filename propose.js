@@ -9,5 +9,5 @@ function startChat() {
 // Function to handle decline action
 function decline() {
     alert("You have declined the offer.");
-    window.location.href = 'user1.html'; // Replace 'home.html' with the URL to redirect after decline
+    window.location.href = 'user2.html'; // Replace 'home.html' with the URL to redirect after decline
 }
