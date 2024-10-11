@@ -8,8 +8,8 @@ function updateClock() {
   clockElement.textContent = `${hours}  :  ${minutes}  :  ${seconds}`;
 
   // Define the time range (for example, 09:00 to 17:00)
-  const startHour = 9;
-  const endHour = 20;
+  const startHour = 0;
+  const endHour = 2;
 
   // Logic to show/hide button or message
   if (now.getHours() >= startHour && now.getHours() < endHour) {
