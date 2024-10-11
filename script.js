@@ -1,7 +1,7 @@
 function updateClock() {
   const clockElement = document.getElementById("clock");
   const now = new Date();
-  const hours = String(now.getHours()).padStart(2, "0")%12;
+  const hours = String(now.getHours()).padStart(2, "0");
   const minutes = String(now.getMinutes()).padStart(2, "0");
   const seconds = String(now.getSeconds()).padStart(2, '0');
 
@@ -9,7 +9,7 @@ function updateClock() {
 
   // Define the time range (for example, 09:00 to 17:00)
   const startHour = 0;
-  const endHour = 5;
+  const endHour = 24;
 
   // Logic to show/hide button or message
   if (now.getHours() >= startHour && now.getHours() < endHour) {
