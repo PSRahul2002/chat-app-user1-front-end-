@@ -18,13 +18,13 @@
     </div>
 
     <script>
-        let currentUserId = 2;  // Change to 2 for User2
+        let currentUserId = 2;  // Change to 1 for User1, 2 for User2
 
-        // Use the WebSocket URL of your backend on Render.com
-        let ws_url = `https://chat-app-backend-2-9wz8.onrender.com/ws/${currentUserId}`;
+        // Use the WebSocket URL of your backend on Render.com (wss for secure WebSocket)
+        let ws_url = `wss://chat-app-backend-2-9wz8.onrender.com/ws/${currentUserId}`;
         let ws = new WebSocket(ws_url);
 
-        // Show the delete button for User1
+        // Show the delete button for User1 only
         if (currentUserId === 1) {
             document.getElementById("deleteUser2Messages").style.display = "block";
         }
@@ -76,6 +76,18 @@
             }
         };
 
+        // Handle WebSocket disconnections and reconnections
+        ws.onclose = function() {
+            console.log("WebSocket connection closed. Attempting to reconnect...");
+            setTimeout(() => {
+                ws = new WebSocket(ws_url);
+            }, 3000);  // Attempt reconnection after 3 seconds
+        };
+
+        ws.onerror = function(error) {
+            console.error("WebSocket encountered an error:", error);
+        };
+
         // Handle sending messages
         function sendMessage() {
             let input = document.getElementById("messageText");
@@ -103,9 +115,8 @@
 
         // Function to delete User2's messages
         function deleteUser2Messages() {
-            alert("This will delete the chat history of user-2");
+            //alert("This will delete the chat history of user-2");
 
-            // Replace the URL with your Render backend URL
             fetch('https://chat-app-backend-2-9wz8.onrender.com/delete_user2_messages?user_id=1', {
                 method: 'DELETE',
                 headers: {
@@ -114,15 +125,17 @@
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                    throw new Error(`Failed to delete messages: ${response.statusText}`);
                 }
                 return response.json();
             })
             .then(data => {
                 console.log("Delete request successful:", data);
+                alert(`Deleted ${data.deleted_count} messages from User2.`);
             })
             .catch(error => {
                 console.error("Error deleting messages:", error);
+                alert("An error occurred while deleting messages.");
             });
         }
     </script>
