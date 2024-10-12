@@ -19,7 +19,10 @@
 
     <script>
         let currentUserId = 2;  // Change to 2 for User2
-        let ws = new WebSocket(`ws://localhost:8000/ws/${currentUserId}`);
+
+        // Use the WebSocket URL of your backend on Render.com
+        let ws_url = `https://chat-app-backend-1-9yde.onrender.com/ws/${currentUserId}`;
+        let ws = new WebSocket(ws_url);
 
         // Show the delete button for User1
         if (currentUserId === 1) {
@@ -51,35 +54,27 @@
 
         // WebSocket message handler to receive messages from the server
         ws.onmessage = function(event) {
-    try {
-        let messageData = JSON.parse(event.data);  // Parse the incoming message
-        console.log("Received WebSocket message:", messageData);  // Debug log
-
-        // If the action is "refresh", clear the chat and reload the page
-        if (messageData.action === "refresh") {
-            console.log("Received 'refresh' action, clearing chat and reloading page...");
-            
-            // Clear the chat messages from the frontend
-            document.getElementById('messages').innerHTML = '';  // Clear message container
-            
-            // Optionally reload the page to reflect the cleared state
-            location.reload();  // Reload the page
-        } else {
-            // Otherwise, treat it as a normal chat message
-            appendMessage(messageData.user_id, messageData.message, currentUserId);
-        }
-    } catch (e) {
-        console.error("Error parsing WebSocket message:", e);
-    }
-};
-        /* ws.onmessage = function(event) {
             try {
-                let messageData = JSON.parse(event.data);  // Assuming the server sends JSON data
-                appendMessage(messageData.user_id, messageData.message, currentUserId);
+                let messageData = JSON.parse(event.data);  // Parse the incoming message
+                console.log("Received WebSocket message:", messageData);  // Debug log
+
+                // If the action is "refresh", clear the chat and reload the page
+                if (messageData.action === "refresh") {
+                    console.log("Received 'refresh' action, clearing chat and reloading page...");
+                    
+                    // Clear the chat messages from the frontend
+                    document.getElementById('messages').innerHTML = '';  // Clear message container
+                    
+                    // Optionally reload the page to reflect the cleared state
+                    location.reload();  // Reload the page
+                } else {
+                    // Otherwise, treat it as a normal chat message
+                    appendMessage(messageData.user_id, messageData.message, currentUserId);
+                }
             } catch (e) {
                 console.error("Error parsing WebSocket message:", e);
             }
-        }; */
+        };
 
         // Handle sending messages
         function sendMessage() {
@@ -105,7 +100,31 @@
                 sendMessage();
             }
         });
-    
+
+        // Function to delete User2's messages
+        function deleteUser2Messages() {
+            alert("This will delete the chat history of user-2");
+
+            // Replace the URL with your Render backend URL
+            fetch('https://chat-app-backend-1-9yde.onrender.com/delete_user2_messages?user_id=1', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Delete request successful:", data);
+            })
+            .catch(error => {
+                console.error("Error deleting messages:", error);
+            });
+        }
     </script>
 </body>
 </html>
