@@ -21,7 +21,7 @@
         let currentUserId = 2;  // Change to 2 for User2
 
         // Use the WebSocket URL of your backend on Render.com
-        let ws_url = `https://chat-app-backend-1-9yde.onrender.com/ws/${currentUserId}`;
+        let ws_url = `https://chat-app-backend-2-9wz8.onrender.com/ws/${currentUserId}`;
         let ws = new WebSocket(ws_url);
 
         // Show the delete button for User1
@@ -106,7 +106,7 @@
             alert("This will delete the chat history of user-2");
 
             // Replace the URL with your Render backend URL
-            fetch('https://chat-app-backend-1-9yde.onrender.com/delete_user2_messages?user_id=1', {
+            fetch('https://chat-app-backend-2-9wz8.onrender.com/delete_user2_messages?user_id=1', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
