@@ -29,7 +29,5 @@ updateClock();
 
 // Function to handle button click
 function goToNextPage() {
-  document.getElementById("nextPageButton").onclick = function () {
-    window.location.href = "propose.html";
-  };
+  window.location.href = "propose.html";
 }
