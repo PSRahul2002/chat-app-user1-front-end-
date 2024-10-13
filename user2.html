@@ -11,12 +11,12 @@
         <div id="messages"></div>
         <div id="input-container">
             <input type="text" id="messageText" autocomplete="off" placeholder="Type a message..."/>
-            <button onclick="sendMessage()">Send</button>
+            <button id="sendButton">Send</button> <!-- Removed the onclick attribute -->
         </div>
         <!-- Only display the delete button for User1 -->
         <button id="deleteUser2Messages" onclick="deleteUser2Messages()" style="display:none;">Delete User2 Messages</button>
     </div>
 
-    <script src = "user.js">  </script>
+    <script src="user.js"></script>
 </body>
 </html>
