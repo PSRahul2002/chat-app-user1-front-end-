@@ -1,126 +1,130 @@
-/* General page styling */
-body {
-    margin: 0;
-    padding: 0; /* Remove padding from body */
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #ffe4e1, #f8bbd0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
-    overflow: hidden; /* Prevent body from scrolling */
-}
-
-/* Letter container styling */
-.letter-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 800px;
-    background-color: #fff0f5;
-    padding: 20px; /* Ensure padding inside the container */
-    margin: 20px 0; /* Set 20px margin for the top and bottom */
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    height: calc(100vh - 40px);  /* Subtract 40px to account for top and bottom margins */
-    width: 100%;
-    overflow-y: auto;
-    box-sizing: border-box; /* Include padding and border in element's size */
-}
-
-/* Letter content styling */
-#letter {
-    color: #d4739d;
-    font-size: 1.2em;
-    line-height: 1.6em;
-    flex-grow: 1; /* Ensure letter takes up available space */
-}
-
-#letter h1 {
-    color: #ff6f91;
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#letter p {
-    margin-bottom: 15px;
-    text-indent: 20px; /* Indented text */
-}
-
-#letter p strong {
-    font-size: 1.1em;
-}
-
-/* Button container styling */
-#button-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
-    gap: 10px; /* Ensure space between buttons */
-}
-
-/* Button styling */
-#chatButton, #declineButton {
-    font-family: Arial, sans-serif;
-    background-color: #ff6f91;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.1em;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(255, 105, 135, 0.4);
-    outline: none;
-    flex: 1; /* Equal width for both buttons */
-}
-
-#declineButton {
-    background-color: #ff9e9e;
-}
-
-/* Remove hover for mobile, ensure no animations */
-#chatButton:hover, #declineButton:hover {
-    background-color: #ff4081;
-}
-
-#declineButton:hover {
-    background-color: #ff6f91;
-}
-
-/* Scroll bar customization */
-.letter-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.letter-container::-webkit-scrollbar-thumb {
-    background-color: #ff6f91;
-    border-radius: 10px;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 600px) {
-    .letter-container {
-        padding: 20px;
-        margin: 20px 10px; /* Maintain space at the top and bottom */
-        height: calc(100vh - 40px); /* Subtract 40px for the top and bottom margin */
-        box-sizing: border-box;
+ /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
+    /* Ensure body takes up full height and applies background */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #ffe4e1, #f8bbd0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* Prevent scrolling on body */
+    }
+
+    /* Letter container styling */
+    .letter-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 800px;
+      background-color: #fff0f5;
+      padding: 20px;
+      margin: 20px 10px; /* Ensure 20px top and bottom margins */
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      height: calc(100vh - 40px); /* Account for 20px top and bottom margin */
+      overflow-y: auto; /* Enable scrolling if content overflows */
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Letter content styling */
     #letter {
+      color: #d4739d;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      flex-grow: 1;
+    }
+
+    #letter h1 {
+      color: #ff6f91;
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #letter p {
+      margin-bottom: 15px;
+      text-indent: 20px;
+    }
+
+    #letter p strong {
+      font-size: 1.1em;
+    }
+
+    /* Button container styling */
+    #button-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    /* Button styling */
+    #chatButton, #declineButton {
+      font-family: Arial, sans-serif;
+      background-color: #ff6f91;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(255, 105, 135, 0.4);
+      outline: none;
+      flex: 1;
+    }
+
+    #declineButton {
+      background-color: #ff9e9e;
+    }
+
+    #chatButton:hover, #declineButton:hover {
+      background-color: #ff4081;
+    }
+
+    #declineButton:hover {
+      background-color: #ff6f91;
+    }
+
+    /* Scroll bar customization */
+    .letter-container::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .letter-container::-webkit-scrollbar-thumb {
+      background-color: #ff6f91;
+      border-radius: 10px;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .letter-container {
+        padding: 20px;
+        margin: 20px 10px;
+        height: calc(100vh - 40px); /* Maintain space at the top and bottom */
+      }
+
+      #letter {
         font-size: 1em;
         line-height: 1.4em;
-    }
+      }
 
-    #button-container {
-        flex-direction: column; /* Stack buttons vertically */
+      #button-container {
+        flex-direction: column;
         gap: 10px;
-    }
+      }
 
-    #chatButton, #declineButton {
-        width: 100%; /* Full width buttons on mobile */
+      #chatButton, #declineButton {
+        width: 100%;
+      }
     }
-}
