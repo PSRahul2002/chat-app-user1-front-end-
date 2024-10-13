@@ -1,7 +1,7 @@
 /* General page styling */
 body {
     margin: 0;
-    padding: 20px 0; /* Ensure 20px space at the top and bottom */
+    padding: 0; /* Remove padding from body */
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom right, #ffe4e1, #f8bbd0);
     display: flex;
@@ -19,15 +19,15 @@ body {
     justify-content: space-between;
     max-width: 800px;
     background-color: #fff0f5;
-    padding: 20px;
-    margin: 0 20px;
+    padding: 20px; /* Ensure padding inside the container */
+    margin: 20px 0; /* Set 20px margin for the top and bottom */
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: left;
-    height: calc(100vh - 40px);  /* Full height minus the 40px for 20px top and bottom padding */
+    height: calc(100vh - 40px);  /* Subtract 40px to account for top and bottom margins */
     width: 100%;
     overflow-y: auto;
-    box-sizing: border-box; /* Include padding in element's width/height */
+    box-sizing: border-box; /* Include padding and border in element's size */
 }
 
 /* Letter content styling */
@@ -105,8 +105,8 @@ body {
 @media (max-width: 600px) {
     .letter-container {
         padding: 20px;
-        margin: 0 10px;
-        height: calc(100vh - 40px); /* Maintain space at the top and bottom */
+        margin: 20px 10px; /* Maintain space at the top and bottom */
+        height: calc(100vh - 40px); /* Subtract 40px for the top and bottom margin */
         box-sizing: border-box;
     }
 
