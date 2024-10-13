@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Romantic Letter</title>
   <style>
-    /* General page reset and styling */
+    /* Reset CSS */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* Ensure body takes up full height and applies background */
     html, body {
-      min-height: 100%;
+      height: 100%;
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
@@ -21,8 +22,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      overflow: hidden;
+      overflow: hidden; /* Prevent scrolling on body */
     }
 
     /* Letter container styling */
@@ -33,13 +33,14 @@
       max-width: 800px;
       background-color: #fff0f5;
       padding: 20px;
-      margin: 20px 10px; /* Ensure margins for mobile and desktop */
+      margin: 20px 10px; /* Ensure 20px top and bottom margins */
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       text-align: left;
-      height: calc(100vh - 40px); /* Account for 20px top and bottom margins */
+      height: calc(100vh - 40px); /* Account for 20px top and bottom margin */
+      overflow-y: auto; /* Enable scrolling if content overflows */
       width: 100%;
-      overflow-y: auto;
+      box-sizing: border-box;
     }
 
     /* Letter content styling */
@@ -72,7 +73,7 @@
       justify-content: space-between;
       width: 100%;
       margin-top: 20px;
-      gap: 10px; /* Ensure space between buttons */
+      gap: 10px;
     }
 
     /* Button styling */
@@ -87,11 +88,29 @@
       cursor: pointer;
       box-shadow: 0 5px 10px rgba(255, 105, 135, 0.4);
       outline: none;
-      flex: 1; /* Equal width for both buttons */
+      flex: 1;
     }
 
     #declineButton {
       background-color: #ff9e9e;
+    }
+
+    #chatButton:hover, #declineButton:hover {
+      background-color: #ff4081;
+    }
+
+    #declineButton:hover {
+      background-color: #ff6f91;
+    }
+
+    /* Scroll bar customization */
+    .letter-container::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .letter-container::-webkit-scrollbar-thumb {
+      background-color: #ff6f91;
+      border-radius: 10px;
     }
 
     /* Mobile responsiveness */
@@ -100,7 +119,6 @@
         padding: 20px;
         margin: 20px 10px;
         height: calc(100vh - 40px); /* Maintain space at the top and bottom */
-        width: 100%; /* Ensure full width on mobile */
       }
 
       #letter {
@@ -109,15 +127,14 @@
       }
 
       #button-container {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: column;
         gap: 10px;
       }
 
       #chatButton, #declineButton {
-        width: 100%; /* Full width buttons on mobile */
+        width: 100%;
       }
     }
-
   </style>
 </head>
 <body>
