@@ -70,7 +70,7 @@ ws.onerror = function (error) {
   console.error("WebSocket encountered an error:", error);
 };
 
-// Handle sending messages
+// Function to send a message
 function sendMessage() {
   let input = document.getElementById("messageText");
   let message = input.value;
@@ -87,7 +87,7 @@ function sendMessage() {
   }
 }
 
-// Add event listener for 'Enter' key press on the input field
+// Add event listener for the 'Enter' key press on the input field
 document
   .getElementById("messageText")
   .addEventListener("keydown", function (event) {
@@ -97,10 +97,13 @@ document
     }
   });
 
+// Add event listener for the "Send" button click
+document.getElementById("sendButton").addEventListener("click", function () {
+  sendMessage(); // Call the sendMessage function when the button is clicked
+});
+
 // Function to delete User2's messages
 function deleteUser2Messages() {
-  //alert("This will delete the chat history of user-2");
-
   fetch(
     "https://chat-app-backend-2-9wz8.onrender.com/delete_user2_messages?user_id=1",
     {
